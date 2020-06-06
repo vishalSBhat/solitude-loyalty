@@ -1,0 +1,182 @@
+$brown: #323232;
+$brown-light: rgb(209, 194, 194);
+$brown-dark: rgb(151, 131, 131);
+$grey: #dddddd;
+$grey-dark: #bbbbbb;
+$input-field: #e8e4e1;
+$font1: "Arvo", serif;
+$font2: "Lexend Tera", sans-serif;
+
+@mixin border($width, $color) {
+  border: $width solid $color;
+}
+
+@mixin bg-color($color) {
+  background-color: $color;
+}
+
+* {
+  box-sizing: inherit;
+  outline: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0;
+}
+
+.row {
+  max-width: calc(100%);
+  margin: 0;
+}
+
+.navbar {
+  @include bg-color(rgba(0, 0, 0, 0.7));
+}
+
+.navbar-brand {
+  font-family: $font2;
+  letter-spacing: 0.3em;
+}
+
+.footer {
+  @include bg-color(rgba(0, 0, 0, 0.5));
+  color: $brown-light;
+}
+
+.background {
+  background-image: url("../images/background.jpg");
+  filter: grayscale(100%);
+  background-size: cover;
+  position: fixed;
+  min-height: calc(100vh);
+  min-width: calc(100vw);
+  z-index: -1;
+}
+
+.body-container,
+.dish-name:hover {
+  @include bg-color($grey);
+}
+
+.dish-name,
+.dish-name:last-of-type,
+.text-field {
+  @include border(1px, $brown);
+}
+
+.text-field-container {
+  position: relative;
+  width: calc(100%);
+  max-width: calc(100%) !important;
+}
+
+.text-field:focus + .placeholder,
+.text-field:not(focus):valid + .placeholder {
+  font-size: 0.8rem;
+  top: -4px;
+  left: 0px;
+  padding: 0 2px;
+  @include bg-color($grey);
+}
+
+.text-field,
+.placeholder {
+  color: $brown;
+  @include bg-color($input-field);
+}
+
+.text-field {
+  font-size: 1.2rem;
+  padding: 0.5em;
+  padding-left: 0.8em;
+  border: none;
+  border-radius: 7px;
+}
+
+.placeholder {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 30px;
+  left: 17px;
+  transition: 0.2s linear;
+  pointer-events: none;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+}
+
+.dish-list-box {
+  position: absolute;
+  width: calc(100%);
+  height: calc(90%);
+  overflow-y: scroll;
+}
+
+.dish-list-box::-webkit-scrollbar,
+.timeline-card-container::-webkit-scrollbar,
+.timeline-card .card-body .card-text::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.dish-name {
+  background-color: #f0ecec;
+  width: calc(100%);
+  border-bottom: none;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.timeline-container {
+  background-image: linear-gradient(to bottom, $grey, $grey-dark);
+  padding: calc(5%);
+}
+
+.timeline-card-container {
+  display: flex;
+  justify-items: center;
+  min-width: calc(90%);
+  overflow-x: scroll;
+}
+
+.timeline-card {
+  @include bg-color($brown);
+  color: $brown-light;
+  flex-shrink: 0;
+  width: #{"min(300px, 90vw)"};
+  height: 300px;
+}
+
+.timeline-card {
+  .card-body {
+    .card-text {
+      height: calc(100%);
+      width: calc(100%);
+      overflow-y: scroll;
+    }
+
+    .card-subtitle {
+      font-size: #{"min(1rem, 4vw)"};
+    }
+  }
+
+  .card-title {
+    font-size: #{"min(1.5rem, 5vw)"};
+  }
+}
+
+.timeline-line {
+  min-width: #{"max(5%, 70px)"};
+  align-self: center;
+  border-bottom: 5px dashed black;
+}
+
+.redeem-container {
+  color: $brown-dark;
+}
