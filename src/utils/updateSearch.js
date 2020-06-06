@@ -1,5 +1,4 @@
 const updateSearch = (val, menu, list) => {
-    console.log(menu);
     val = val.toLowerCase();
     if (val === '')
         return [];

@@ -20,7 +20,6 @@ export default class CustomerForm extends Component {
   }
 
   setField = (e) => {
-    console.log(this.props.menu);
     const val =
       e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
     this.setState({ [e.target.name]: val });

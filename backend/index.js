@@ -11,7 +11,6 @@ app.use(cors());
 
 app.get('/customers', (req, res) => res.send(JSON.stringify(CUSTOMERS)));
 app.get('/menu', (req, res) => {
-    console.log('here');
     res.send(JSON.stringify(MENU_ITEMS));
 })
 
